@@ -37,7 +37,7 @@ class Producer(threading.Thread):
         To run process in one thread
         :return:
         """
-        run_count = self.conf["count"]
+        run_count = self._conf["count"]
         for i in range(0, run_count + 1):
             timeout = self._conf["timeout"]
             time.sleep(timeout)

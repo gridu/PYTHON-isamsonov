@@ -12,7 +12,6 @@ class SystemConfig:
         return os.path.exists(self._config_file)
 
     def _read_config(self):
-        logging.info("Reading config file {}".format(self._config_file))
         if self._check_exist_config_file():
             with open(self._config_file, 'r') as f:
                 return json.load(f)
