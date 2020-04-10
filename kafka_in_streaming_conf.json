@@ -1,0 +1,31 @@
+{
+  "count_producer": 4,
+  "producer1": {
+    "count": 10,
+    "type": "click",
+    "timeout": 2,
+    "url": "https://blog.griddynamics.com/in-stream-deduplication-with-spark-amazon-kinesis-and-s3",
+    "ip": "127.0.0.1"
+  },
+  "producer2": {
+    "count": 10,
+    "type": "click",
+    "timeout": 20,
+    "url": "https://blog.griddynamics.com/why-you-need-data-quality-automation-to-make-data-driven-decisions",
+    "ip": "192.168.0.1"
+  },
+  "producer3": {
+    "count": 10,
+    "type": "click",
+    "timeout": 2,
+    "url": "https://blog.griddynamics.com/how-to-create-a-serverless-real-time-analytics-platform-a-case-study",
+    "ip": "192.168.0.2"
+  },
+  "producer4": {
+    "count": 10,
+    "type": "click",
+    "timeout": 10,
+    "url": "http//blog.griddynamics.com/moving-from-batch-to-stream-processing-with-kinesis-spark-and-redshift",
+    "ip": "192.168.0.3"
+  }
+}
