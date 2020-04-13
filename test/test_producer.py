@@ -1,31 +1,22 @@
 import unittest
 import os
-from config import SystemConfig
-from system_type import KafkaInStreaming
+from generate_test_data.producer import Producer
+from generate_test_data.config import SystemConfig
 
 
-class SystemTypeTest(unittest.TestCase):
+class ProducerTest(unittest.TestCase):
     """
-    Test SystemType class and his implementations
+    Test Producer class
     """
     def setUp(self) -> None:
         self.conf_file_name = "test_conf.json"
         with open(self.conf_file_name, 'w') as f:
             json_string = r"""
                 {
-                  "count_producer": 2,
-                  "producer1": {
                     "type": "click",
                     "timeout": 2,
                     "url": "https://blog.griddynamics.com/in-stream-deduplication-with-spark-amazon-kinesis-and-s3",
                     "ip": "127.0.0.1"
-                  },
-                  "producer2": {
-                    "type": "click",
-                    "timeout": 20,
-                    "url": "https://blog.griddynamics.com/why-you-need-data-quality-automation-to-make-data-driven-decisions",
-                    "ip": "192.168.0.1"
-                  }
                 }
             """
             f.write(json_string)
@@ -38,5 +29,11 @@ class SystemTypeTest(unittest.TestCase):
             pass
 
     def test_count_producers(self):
-        producers = KafkaInStreaming().producers(self.conf)
-        self.assertEqual(len(producers), 2)
+        producer = Producer("producer1", self.conf)
+        producer_data_file = producer.producer_name() + ".data"
+        producer.produce()
+        self.assertEqual(os.path.exists(producer_data_file), True)
+        try:
+            os.remove(producer_data_file)
+        except OSError:
+            pass

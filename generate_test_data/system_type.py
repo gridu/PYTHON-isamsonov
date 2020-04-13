@@ -1,4 +1,4 @@
-from producer import Producer
+from generate_test_data.producer import Producer
 
 
 class SystemType:

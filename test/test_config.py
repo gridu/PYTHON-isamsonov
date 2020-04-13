@@ -1,7 +1,5 @@
 import unittest
-import json
-import os
-from config import *
+from generate_test_data.config import *
 
 
 class ConfigTest(unittest.TestCase):

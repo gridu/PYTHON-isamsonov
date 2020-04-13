@@ -1,6 +1,6 @@
 import argparse
-from system_type import *
-from config import SystemConfig
+from generate_test_data.system_type import *
+from generate_test_data.config import SystemConfig
 
 
 class TestSystem:
@@ -33,7 +33,3 @@ class TestSystem:
     def process(self, system_type, conf):
         system_type.process(conf)
 
-
-if __name__ == "__main__":
-    t = TestSystem()
-    t.run()
